@@ -21,9 +21,8 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-please install any other required module
-since I have used [(https://fedskillstest.coalitiontechnologies.workers.dev/patients) this json data.
-To Access this data we need username and password.
+please install any other modules tha are required, since I have used [(https://fedskillstest.coalitiontechnologies.workers.dev/patients) this json data.
+To Access this json data we need username and password.
 These are environmental variables. 
 When you use environment variables correctly, they are not exposed to the client-side code (like JavaScript in the browser) and remain hidden during runtime.
 When user of tries to inspect the code ,username and password entered can be visible in the frontend code(client-side). so it's better to keep it server-side(backend)
