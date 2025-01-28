@@ -1,0 +1,481 @@
+/* Reset Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f5f7;
+}
+
+/* Top Navigation Bar */
+.topbar {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation .logo {
+    height: 40px;
+    margin-right: 20px;
+}
+
+.navigation .nav-link {
+    padding: 14px 20px;
+    color: #333;
+    text-decoration: none;
+}
+
+.navigation .active {
+    font-weight: bold;
+    color: #00bcd4;
+}
+/* Profile Section in Top Navigation */
+.profile-section {
+    display: flex;
+    align-items: center;
+    margin-left: auto; 
+}
+
+.profile-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%; 
+    margin-right: 10px; /* Space between image and name */
+}
+
+.doctor-name {
+    font-size: 1em;
+    color: #333;
+    margin-right: 10px; 
+}
+
+.settings-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer; 
+}
+
+/* Main Layout */
+.container {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Sidebar (Left) */
+
+.sidebar {
+    width: 20%;
+    padding: 20px;
+    background-color: #ffffff; 
+    border-radius: 8px; 
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+    margin-top: 20px; 
+    border: 1px solid #e0e0e0; 
+    max-height: 1000px;         
+    overflow-y: auto;
+    box-sizing: border-box; 
+}
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 10px;
+    margin: 0;
+    padding: 10px 0;
+    position: sticky;          
+    top: 0;                    
+    background-color: #fff;    
+    z-index: 1;
+}
+
+/* Style for the search button icon */
+.search-btn {
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+    padding: 0; 
+    margin-left: auto; 
+}
+
+.search-btn img {
+    width: 15px; 
+    height: 15px;
+    border-radius: 0; 
+}
+
+.sidebar h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 15px;
+}
+.patient {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    position: relative; 
+    cursor: pointer;
+    height: 70px;
+       
+}
+
+.patient-photo {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.patient .patient-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.patient-list {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+.patient-list.patient {
+    margin: 10px 0;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.patient-list .patient:hover {
+    background-color: #f0f4f8;
+}
+
+.patient-list .selected {
+    background-color: #6ee1f0;
+}
+
+/* Action Button Wrapper */
+.patient-action-btn {
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+    padding: 0; 
+    margin-left: auto; 
+    
+  }
+  
+  /* Action Button */
+  .action-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: auto;
+    width: 5px;
+    height: 5px;
+    
+  }
+  
+  /* Action Button Image */
+  .action-button button{
+    width: 2px;
+    height: 2px;
+    object-fit: contain;
+  }
+/* Main Content */
+.main-content {
+    width: 60%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;  
+    height: 150vh;  
+}
+
+header h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Chart Section */
+.chart-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.chart-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    align-items:last baseline;
+   
+}
+
+.chart-section h2 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.stat p {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.stat span {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Health Metrics */
+.health-metrics {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.metric {
+    background-color: #ffffff;
+    background-color: #E0F3FA;
+    width: 30%;
+    padding: 5px;
+    border-radius: 8px;
+    text-align: center;
+}
+/* Common styling for all status images */
+.status_img1,
+.status_img2,
+.status_img3 {
+    width: 96px;          
+    height: 96px;        
+    border-radius: 50%;    
+    object-fit: cover;     
+    display: block;        
+    margin: auto;  
+    align-items: center;        
+}
+
+
+.metric h3 {
+    font-size: 1em;
+    color: #333;
+}
+
+.metric p {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.metric span {
+    font-size: 0.9em;
+    color: #170011;
+    font-weight:bold;
+}
+.metrics {
+    margin-left: auto;
+}
+
+/* Diagnostic List */
+.diagnostic-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    
+}
+.diagnostic-list h2 {
+    position: sticky; 
+    top: 0; 
+    background-color: #f4f5f7;; 
+    z-index: 2; 
+    padding: 10px 0; 
+    margin: 0; 
+   
+}
+/* Table Wrapper */
+.diagnostic-list-wrapper {
+    max-height: 400px; 
+    overflow-y: auto;  
+    display: block;    
+}
+
+/* Table Styling */
+.diagnostic-list table {
+    border-collapse: collapse;
+    background-color: #ffffff;
+    width: 100%; 
+    table-layout: fixed; 
+    margin-top: 10px; 
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+    border: 1px solid #e0e0e0;
+}
+
+/* Table Header - Make it sticky */
+.diagnostic-list thead {
+    position: sticky;  
+    top: 40px;            
+    background-color: #ffffff; 
+    z-index: 1;        
+  
+}
+/* Table Header Cells */
+.diagnostic-list th {
+    padding: 12px;
+    text-align: left;
+    background-color: #f4f5f7;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Table Data Cells */
+.diagnostic-list td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+    color: #555;
+}
+
+/* Optional: Add a border around the table */
+.diagnostic-list table {
+    border: 1px solid #e0e0e0; 
+}
+
+/* Add spacing between the table and other content */
+.diagnostic-list-wrapper {
+    margin-top: 20px; /* Space above the table */
+}
+
+/* Profile Sidebar */
+.profile-sidebar {
+    width: 20%;
+    padding: 20px;
+    background-color: #ffffff; 
+    border-radius: 8px; 
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+    margin-top: 20px; 
+    border: 1px solid #e0e0e0; 
+}
+.jessica-details-box {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+    border: 1px solid #e0e0e0;
+}
+.jessica-details-box button {
+    background-color: #1fbdd2; 
+    color: #ffffff; 
+    border: none; 
+    padding: 10px 20px; 
+    font-size: 1em; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+    margin-top: 10px; 
+}
+
+.jessica-details-box button:hover {
+    background-color: #0097a7; 
+    transform: translateY(-2px); 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.jessica-details-box button:active {
+    transform: translateY(1px); 
+
+}
+.profile-sidebar img {
+    width: 70%;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.profile-sidebar h2 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.lab-results-box {
+    padding: 20px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+    border: 1px solid #e0e0e0;
+    align-items: center;
+    position: relative; 
+}
+
+.lab-results-box h3 {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 10px;
+    position: sticky; 
+    top: 0; 
+    background-color: #ffffff; 
+    padding: 10px 0; 
+    z-index: 1; 
+}
+
+.lab-results-box ul {
+    list-style: none;
+    max-height: 300px; 
+    overflow-y: auto;  
+    padding-left: 0;
+    margin: 0; 
+}
+
+.lab-results-box li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.download-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.download-btn img {
+    width: 15px;
+    height: 15px;
+    border-radius: 0; 
+}
+
+#bloodPressureChart {
+    width: 650px;
+    height: 400px;
+    margin: 0; 
+    padding: 0; 
+    max-width: 650px;
+    max-height: 400px;
+}
