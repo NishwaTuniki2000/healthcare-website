@@ -1,4 +1,4 @@
-# healthcare-website
+# Healthcare-website
 Simple healthcare website one page, where the patient details are displayed from doctor's website.
 
 # Getting Started with Create React App
@@ -32,4 +32,8 @@ dotenv so install it.
 ### `npm install dotenv`
 
 I have created .env file which has sensitive data(username and password)
+please contact tunikinishwa@gmail.com for .env
+or
+Use jsondata I have provided without any authentication.
+
 
