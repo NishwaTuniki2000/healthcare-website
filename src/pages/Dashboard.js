@@ -1,39 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { drawBloodPressureChart } from '../components/BloodPressureChart';
 
 const Dashboard = () => {
-  const [patients, setPatients] = useState([]);
+  const [, setPatients] = useState([]);
 
-  // Fetch patient data from the API
+   // Fetch patient data from the API
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    const fetchPatients = async () => {
-      const apiUrl = 'https://fedskillstest.coalitiontechnologies.workers.dev/patients';
-      const username = process.env.REACT_APP_API_USERNAME;
-      const password = process.env.REACT_APP_API_PASSWORD;
-
-      const headers = new Headers();
-      headers.set('Authorization', 'Basic ' + btoa(`${username}:${password}`));
-
-      try {
-        const response = await fetch(apiUrl, { headers });
-        if (!response.ok) {
-          throw new Error('Failed to fetch patient data');
-        }
-        const data = await response.json();
-        const patientArray = Array.isArray(data) ? data : [];
-        setPatients(patientArray);  
-        updatePatientListInHTML(patientArray);
-      } catch (error) {
-        console.error('Error:', error);
-        setPatients([]);
-        updatePatientListInHTML([]);
-      }
-    };
-
-    fetchPatients();
-  }, []);
-
-  // Function to update the patient list in the plain HTML
+    // Function to update the patient list in the plain HTML
   const updatePatientListInHTML = (patients) => {
     const patientListElement = document.getElementById('patient-list');
     if (!patientListElement) return;
@@ -121,6 +95,41 @@ const Dashboard = () => {
       patientListElement.appendChild(listItem);
     });
   };
+    const fetchPatients = async () => {
+      const apiUrl = 'https://fedskillstest.coalitiontechnologies.workers.dev/patients';
+      const username = process.env.REACT_APP_API_USERNAME;
+      const password = process.env.REACT_APP_API_PASSWORD;
+
+      const headers = new Headers();
+      headers.set('Authorization', 'Basic ' + btoa(`${username}:${password}`));
+
+      try {
+        const response = await fetch(apiUrl, { headers });
+        if (!response.ok) {
+          throw new Error('Failed to fetch patient data');
+        }
+        const data = await response.json();
+        const patientArray = Array.isArray(data) ? data : [];
+        setPatients(patientArray);  
+        updatePatientListInHTML(patientArray);
+        if (patientArray.length > 0) {
+          const firstPatient = patientArray[0];
+          renderPatientProfileInSidebar(firstPatient);
+          renderBloodPressureChartInHTML(firstPatient);
+          renderDiagnosisListInTable(firstPatient);
+          renderLabResultsInSidebar(firstPatient);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        setPatients([]);
+        updatePatientListInHTML([]);
+      }
+    };
+
+    fetchPatients();
+  }, []);
+
+  
   // Function to update the patient profile in the sidebar
   const renderPatientProfileInSidebar = (patient) => {
     const { name, date_of_birth , gender, phone_number, emergency_contact, insurance_type, profile_picture } = patient;
