@@ -1,43 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthCare Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Top-Navigation -->
+    <div class="topbar">
+        <nav class="navigation">
+            <img src="Assets/logo.jpg" class="logo" alt="Tech.Care Logo">
+            <a href="#" class="nav-link">Overview</a>
+            <a href="#" class="nav-link active">Patients</a>
+            <a href="#" class="nav-link">Schedule</a>
+            <a href="#" class="nav-link">Message</a>
+            <a href="#" class="nav-link">Transactions</a>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+            <div class="profile-section">
+                <img src="Assets/Dr_simmons.jpg" class="profile-image" alt="Doctor Profile">
+                <span class="doctor-name">Dr. Jose Simmons</span>
+                <img src="Assets/settings_icon.jpg" class="settings-icon" alt="Settings">
+            </div>
+        </nav>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="container">
+        <!-- Sidebar: Patient List -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3 class="patients-title">Patients</h3>
+                <button class="search-btn">
+                    <img src="Assets/search_button.png" alt="Search">
+                </button>
+            </div>
+            <ul id="patient-list" class="patient-list">
+                <!-- JavaScript will dynamically populate this list -->
+                
+            </ul>
+        </aside>
+        <!--  Diagnosis History and Metrics -->
+        <main class="main-content">
+            <header>
+                <h1>Diagnosis History</h1>
+            </header>
+            <!-- Blood Pressure Chart Section -->
+            <section class="chart-section">
+                <h2 id="chart-title">Blood Pressure</h2>
+                <div class="chart-container">
+                    <canvas id="bloodPressureChart" width="400px" height= "300px";></canvas>
+                    <div class="metrics">
+                        <div class="metric">
+                            <h3>Systolic:</h3> 
+                            <span id="latest-systolic"></span> mmHg
+                        </div>
+                        <div class="metric">
+                            <h3>Diastolic:</h3>
+                            <span id="latest-diastolic"></span> mmHg
+                        </div>
+                    </div>
+                </div>
+                 <!-- Health Metrics Section -->
+                <section class="health-metrics">
+                
+                    <div class="metric">
+                        <p><img src="Assets/HeartBPM.jpg" class="status_img1"></p>
+                        <h3>Heart Rate</h3> <p> <span id="heart-rate-value"></span></p>
+                        <span class="status" id="heart-rate-status"></span> 
+                    </div>
+                    <div class="metric">
+                      <p><img src="Assets/temperature.jpg" class="status_img2"></p>
+                      <h3>Temperature</h3> <p><span id="temperature-value"></span></p>
+                      <span class="status" id="temperature-status"></span> 
+                      
+                    </div>
+                    <div class="metric">
+                      <p><img src="Assets/respiratory_rate.jpg" class="status_img3"></p>
+                      <h3>Respiratory Rate</h3> <p><span id="respiratory-rate-value"></span></p>
+                      <span class="status" id="respiratory-rate-status"></span> 
+                    </div> 
+              </section>
+            </section>
+            <!-- Diagnostic List Section -->
+            <section class="diagnostic-list">
+            <div class="diagnostic-list-wrapper">
+                <h2>Diagnosis List</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Problem/Diagnosis</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                </div>
+            </section>
+            
+        </main>
+
+        <!-- Profile Sidebar: Patient Profile and Lab Results -->
+        <aside class="profile-sidebar">
+            <div class="jessica-details-box">
+              <img src="Assets/default-profile.jpg" alt="Patient Profile" id="profile-picture" />
+              <h2 id="profile-name">Select a Patient</h2>
+          
+              <div class="profile-info">
+                <p><strong>Date of Birth:</strong> </p><p></p><span id="dob">-</span></p>
+                <p><strong>Gender:</strong></p><p></p> <span id="gender">-</span></p>
+                <p><strong>Contact Info:</strong> </p><p></p><span id="contact-info">-</span></p>
+                <p><strong>Emergency Contact:</strong> </p><p></p><span id="emergency-contact">-</span></p>
+                <p><strong>Insurance Provider:</strong> </p><p></p><span id="insurance-provider">-</span></p>
+              </div>
+          
+              <button id="show-all-info-button">Show All Information</button>
+            </div>
+          
+
+            <!-- Lab Results Section -->
+            <div class="lab-results-box">
+                <h3>Lab Results</h3>
+                <ul id="lab-results-ul">
+                    <!-- Lab results with download buttons will be populated here -->
+                </ul>
+            </div>
+            
+        </aside>
+    </div>
+
+    <!-- The root element where React will mount the app -->
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    <!-- Add the React app script -->
+    <script src="/build/webpack.config.js"></script> 
+</body>
 </html>
